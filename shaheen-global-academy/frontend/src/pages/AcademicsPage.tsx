@@ -1,46 +1,69 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ComingSoonModal from "../components/ComingSoonModal";
 
 export default function Academics() {
   const [showModal, setShowModal] = useState(false);
   const [selectedSection, setSelectedSection] = useState("");
+  const navigate = useNavigate();
 
   const sections = [
+    {
+      title: "Prospectus",
+      desc: "Comprehensive guide to our academic offerings, policies and campus life.",
+      link: "/documents/Prospectus-2025.pdf",
+      type: "pdf"
+    },
     {
       title: "Scholarships",
       desc: "Merit-based, need-based and talent scholarships for deserving students.",
       link: "/academics/scholarships",
+      comingSoon: true
     },
     {
       title: "Admission Forms",
       desc: "Download and submit admission forms for various programs.",
       link: "/academics/admission-forms",
+      comingSoon: true
     },
     {
       title: "Syllabus",
       desc: "Structured syllabus for NEET, JEE, Foundation & other academic streams.",
       link: "/academics/syllabus",
+      comingSoon: true
     },
     {
       title: "E-Library",
       desc: "Access digital books, notes, question banks and study material.",
       link: "/academics/e-library",
+      comingSoon: true
     },
     {
       title: "Programs Offered",
       desc: "Explore the diverse academic programs we offer.",
       link: "/academics/programs",
+      comingSoon: true
     },
     {
       title: "Academic Calendar",
       desc: "View schedules, examination timelines and important academic dates.",
       link: "/academics/calendar",
+      comingSoon: true
     },
   ];
 
-  const handleSectionClick = (title: string) => {
-    setSelectedSection(title);
-    setShowModal(true);
+  const handleSectionClick = (sec: any) => {
+    if (sec.comingSoon) {
+      setSelectedSection(sec.title);
+      setShowModal(true);
+      return
+    }
+
+    if (sec.type === "pdf") {
+      window.open(sec.link, "_blank");
+    } else {
+      navigate(sec.link);
+    }
   };
 
   return (
@@ -49,7 +72,8 @@ export default function Academics() {
       <div className="text-center mt-16 mb-16">
         <h1 className="text-gray-800 mb-4">Academics</h1>
         <p className="text-gray-600 max-w-xl mx-auto">
-          Explore academic resources, programs, forms, and digital learning tools.
+          Explore academic resources, programs, forms, and digital learning
+          tools.
         </p>
 
         <div className="mt-4 flex justify-center">
@@ -62,7 +86,7 @@ export default function Academics() {
         {sections.map((sec, i) => (
           <a
             key={i}
-            onClick={() => handleSectionClick(sec.title)}
+            onClick={() => handleSectionClick(sec)}
             className="group block p-8 rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#9AE600] transition-all duration-300"
           >
             <h3 className="text-gray-800 text-xl mb-2 group-hover:text-[#9AE600]">
@@ -81,7 +105,6 @@ export default function Academics() {
         onClose={() => setShowModal(false)}
         message={`The "${selectedSection}" section is currently under development. We'll notify you once it's ready!`}
       />
-
     </div>
   );
 }
