@@ -1,15 +1,42 @@
-import heroImage from '../assets/bg2.png';
+import heroImage1 from "../assets/bg2.png";
+import heroImage2 from "../assets/bg.png";
+import heroImage3 from "../assets/bg3.png";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+const heroImages = [heroImage1, heroImage2, heroImage3];
 
 export function Hero() {
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden w-full" style={{ marginTop: '46px', minHeight: 'calc(100vh - 84px)' }}>
-      {/* Background container for video/gif - add your video/gif here later */}
-      <div className="absolute inset-0">
-        <img src={heroImage} alt="" className="w-full h-full object-cover object-center blur-[1.5px]" />
-        {/* Replace with video if needed: */}
-        {/* <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source src="your-video.mp4" type="video/mp4" />
-        </video> */}
+    <section
+      className="relative overflow-hidden w-full"
+      style={{ marginTop: "46px", minHeight: "calc(100vh - 84px)" }}
+    >
+      {/* <div className="absolute inset-0">
+        <img src={heroImage1} alt="" className="w-full h-full object-cover object-center blur-[1.5px]" />
+      </div> */}
+
+      <div className="absolute inset-0 overflow-hidden">
+        {heroImages.map((img, index) => (
+          <motion.img
+            key={index}
+            src={img}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center blur-[1.5px]"
+            animate={{ opacity: currentHeroImage === index ? 1 : 0, scale: currentHeroImage === index ? 1 : 1.05 }}
+            transition={{ duration: 1.5 }}
+          />
+        ))}
       </div>
 
       {/* Dark overlay for better text readability */}
@@ -21,23 +48,38 @@ export function Hero() {
           <div className="flex-1 text-white max-w-3xl">
             <div className="space-y-6 mb-12">
               <div className="space-y-3">
-                <h1 className="text-white text-[64px] leading-none tracking-tight" style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 1)' }}>
+                <h1
+                  className="text-white text-[64px] leading-none tracking-tight"
+                  style={{ textShadow: "0 4px 20px rgba(0, 0, 0, 1)" }}
+                >
                   Shaheen Global Academy
                 </h1>
                 <div className="flex items-center gap-3">
                   <div className="h-px w-12 bg-[#9ae600]"></div>
-                  <span className="text-[#9AE600] text-sm tracking-wider uppercase" style={{textShadow:'0 4px 20px rgba(0, 0, 0, 1)' }}>
+                  <span
+                    className="text-[#9AE600] text-sm tracking-wider uppercase"
+                    style={{ textShadow: "0 4px 20px rgba(0, 0, 0, 1)" }}
+                  >
                     Katauli, Lucknow
                   </span>
                 </div>
               </div>
-              <p className="text-white/80 max-w-xl text-xl leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 1)' }}>
-                Empowering students to seize opportunities through excellence in education.
+              <p
+                className="text-white/80 max-w-xl text-xl leading-relaxed"
+                style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 1)" }}
+              >
+                Empowering students to seize opportunities through excellence in
+                education.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href='#enquiry' className="border border-[#9AE600] text-white max-w-fit px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-[#9AE600] hover:text-gray-900 hover:shadow-lg hover:scale-105 font-semibold" style={{textShadow:'0 4px 20px rgba(0, 0, 0, 1)' }}>
-                Visit Now {/*goes to same admissin form as above in admission in header*/}
+              <a
+                href="#enquiry"
+                className="border border-[#9AE600] text-white max-w-fit px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-[#9AE600] hover:text-gray-900 hover:shadow-lg hover:scale-105 font-semibold"
+                style={{ textShadow: "0 4px 20px rgba(0, 0, 0, 1)" }}
+              >
+                Visit Now{" "}
+                {/*goes to same admissin form as above in admission in header*/}
               </a>
             </div>
           </div>
