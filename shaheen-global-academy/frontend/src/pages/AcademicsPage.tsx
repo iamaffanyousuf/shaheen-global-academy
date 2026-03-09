@@ -67,7 +67,7 @@ export default function Academics() {
   };
 
   return (
-    <div className="py-24 px-6 container mx-auto">
+    <div className="py-24 px-6 container mx-auto cursor-pointer">
       {/* Title */}
       <div className="text-center mt-16 mb-16">
         <h1 className="text-gray-800 mb-4">Academics</h1>

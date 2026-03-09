@@ -1,8 +1,8 @@
 import { Phone, MessageCircle, Mail, Clock } from 'lucide-react';
 
 export function EnquirySection() {
-  const phoneNumber = "+91-090444 42494"; // Replace with actual number
-  const whatsappNumber = "8050020345"; // don't use + and - cz of wa.me link format
+  const phoneNumber = "+91-090444 42494";
+  const whatsappNumber = "8050020345";
   const email = "info@shaheeneducation.org";
 
   const handleCall = () => {
@@ -15,7 +15,7 @@ export function EnquirySection() {
   };
 
   const handleEmail = () => {
-    window.location.href = `mailto:${email}`;
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
   };
 
   return (
