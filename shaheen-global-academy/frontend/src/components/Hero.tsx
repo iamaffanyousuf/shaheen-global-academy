@@ -1,10 +1,19 @@
 import heroImage1 from "../assets/bg2.png";
 import heroImage2 from "../assets/bg.png";
 import heroImage3 from "../assets/bg3.png";
+
+import heroMobile1 from "../assets/bgm.png";
+import heroMobile2 from "../assets/bgm2.png";
+import heroMobile3 from "../assets/bgm3.png";
+
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const heroImages = [heroImage1, heroImage2, heroImage3];
+const heroImages = [
+  { desktop: heroImage1, mobile: heroMobile1 },
+  { desktop: heroImage2, mobile: heroMobile2 },
+  { desktop: heroImage3, mobile: heroMobile3 },
+];
 
 export function Hero() {
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
@@ -15,6 +24,19 @@ export function Hero() {
     }, 15000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -30,10 +52,13 @@ export function Hero() {
         {heroImages.map((img, index) => (
           <motion.img
             key={index}
-            src={img}
+            src={isMobile ? img.mobile : img.desktop}
             alt=""
             className="absolute inset-0 w-full h-full object-cover object-center blur-[1.5px]"
-            animate={{ opacity: currentHeroImage === index ? 1 : 0, scale: currentHeroImage === index ? 1 : 1.05 }}
+            animate={{
+              opacity: currentHeroImage === index ? 1 : 0,
+              scale: currentHeroImage === index ? 1 : 1.05,
+            }}
             transition={{ duration: 1.5 }}
           />
         ))}
@@ -49,7 +74,7 @@ export function Hero() {
             <div className="space-y-6 mb-12">
               <div className="space-y-3">
                 <h1
-                  className="text-white text-[64px] leading-none tracking-tight"
+                  className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[72px] leading-[1.1] tracking-tight"
                   style={{ textShadow: "0 4px 20px rgba(0, 0, 0, 1)" }}
                 >
                   Shaheen Global Academy
@@ -65,7 +90,7 @@ export function Hero() {
                 </div>
               </div>
               <p
-                className="text-white/80 max-w-xl text-xl leading-relaxed"
+                className="text-white/80 max-w-xl text-base sm:text-lg md:text-lg leading-relaxed"
                 style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 1)" }}
               >
                 Empowering students to seize opportunities through excellence in
@@ -75,7 +100,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#enquiry"
-                className="border border-[#9AE600] text-white max-w-fit px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-[#9AE600] hover:text-gray-900 hover:shadow-lg hover:scale-105 font-semibold"
+                className="border border-[#9AE600] text-white max-w-fit px-4 py-3 sm:px-8 sm:py-3.5 rounded-full transition-all duration-300 hover:bg-[#9AE600] hover:text-gray-900 hover:shadow-lg hover:scale-105 font-semibold"
                 style={{ textShadow: "0 4px 20px rgba(0, 0, 0, 1)" }}
               >
                 Visit Now{" "}

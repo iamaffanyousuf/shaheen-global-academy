@@ -4,15 +4,9 @@
 
 /* scrollbar styling - custom
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #9ae600 transparent; /* thumb track */
-}
-
 /* Chrome, Edge, Brave */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
   height: 6px;
 }
 
@@ -21,7 +15,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color:  #9ae600;
+  background-color: #9ae600;
   border-radius: 9999px;
 }
 
@@ -30,9 +24,10 @@
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none; /* Chrome, Safari, Opera */
 }
+
