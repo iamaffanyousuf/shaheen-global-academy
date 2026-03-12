@@ -1,3 +1,4 @@
+import { faculties } from '../data/faculties';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 
@@ -5,25 +6,6 @@ export function FacultiesSection() {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
   const images = import.meta.glob('../assets/faculties/*.{jpg,jpeg,png}', { eager: true }) as Record<string, { default: string }>;
-
-  const faculties = [
-    {
-      name: "Syed Yousuf Al Hussaini",
-      qualification: "",
-      specialization: "Head & Director of Shaheen Global Academy",
-      department: "management",
-      experience: "30+",
-      image: images["../assets/faculties/yousuf-hussaini.jpg"].default
-    },
-    {
-      name: "Fakhrul Islam Falahi",
-      qualification: "Masters in Languages",
-      specialization: "Director of Academics & Management",
-      department: "management",
-      experience: "10+",
-      image: images["../assets/faculties/fakhrul-islam.jpg"].default
-    }
-  ];
 
   const departments = [
     { id: 'all', label: 'All Departments' },
@@ -79,7 +61,7 @@ export function FacultiesSection() {
               <div className="relative mb-5">
                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-[#9AE600] shadow-lg group-hover:scale-105 transition-transform duration-300">
                   <img
-                    src={faculty.image}
+                    src={images[`../assets/faculties/${faculty.image}`].default}
                     alt={faculty.name}
                     className="w-full h-full object-cover"
                   />
