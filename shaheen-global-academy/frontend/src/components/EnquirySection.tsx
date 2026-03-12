@@ -2,7 +2,7 @@ import { Phone, MessageCircle, Mail, Clock } from 'lucide-react';
 
 export function EnquirySection() {
   const phoneNumber = "+91-090444 42494";
-  const whatsappNumber = "8050020345";
+  const whatsappNumber = "+918050020345";
   const email = "info@shaheeneducation.org";
 
   const handleCall = () => {
