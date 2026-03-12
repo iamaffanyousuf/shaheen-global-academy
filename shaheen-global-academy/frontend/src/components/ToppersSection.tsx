@@ -1,3 +1,4 @@
+import { toppers } from '../data/toppers';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -10,31 +11,7 @@ export function ToppersSection() {
   import: 'default'
 });
 
-//hardcoded data for demonstration
-  const toppers = {
-    '2024': [
-      {
-        name: "Student A",
-        exam: "NEET",
-        score: "720/720",
-        rank: "123",
-        image: images["../assets/toppers/testImage.png"],
-        college: "AIIMS Delhi"
-      }
-    ],
-    '2023': [
-      {
-        name: "Student B",
-        exam: "NEET",
-        score: "718/720",
-        rank: "321",
-        image: images["../assets/toppers/testImage.png"],
-        college: "AIIMS Delhi"
-      }
-    ]
-  };
-
-  const years = ['2024', '2023'];
+  const years = Object.keys(toppers).sort((a, b) => parseInt(b) - parseInt(a)); // Sort years in descending order
   const currentToppers = toppers[selectedYear as keyof typeof toppers];
 
   // Auto-slide effect
@@ -111,7 +88,7 @@ export function ToppersSection() {
                       {/* Image */}
                       <div className="relative h-80 overflow-hidden">
                         <img 
-                          src={String(topper.image)}
+                          src={images[`../assets/toppers/${topper.image}`] as string}
                           alt={topper.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
