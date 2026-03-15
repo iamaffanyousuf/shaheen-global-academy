@@ -14,8 +14,17 @@ export function NewsEvents() {
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 Shaheen Global Academy in Malihabad Lucknow is a branch of
-                <span className="font-semibold text-blue-700"> Shaheen Group of Institutions</span> providing quality education, NEET
-                and JEE coaching, and strong academic programs.
+                <span className="font-semibold text-blue-700">
+                  <a
+                    href="https://www.shaheengroup.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span> Shaheen Group of Institutions </span>
+                  </a>
+                </span>{" "}
+                providing quality education, NEET and JEE coaching, and strong
+                academic programs.
               </p>
             </div>
 

@@ -1,11 +1,15 @@
-import { Building2, MonitorPlay, Trophy, BookOpenCheck, Zap, UtensilsCrossed } from 'lucide-react';
+import { Building2, MonitorPlay, UtensilsCrossed, Smartphone, Award, Users } from 'lucide-react';
 
 export function FacilitiesSection() {
   const facilities = [
     {
       icon: Building2,
       title: "World-Class Infrastructure",
-      description: "Amazing, spacious campus with separate facilities for boys and girls. Modern architecture designed to create an optimal learning environment."
+      description: (
+        <>
+          Amazing, spacious campus with <span className="bg-yellow-200 px-1 rounded">separate campus & facilities for boys and girls.</span> Modern architecture designed to create an optimal learning environment.
+        </>
+      )
     },
     {
       icon: MonitorPlay,
@@ -13,24 +17,40 @@ export function FacilitiesSection() {
       description: "State-of-the-art smart classrooms equipped with interactive displays, high-speed internet, and multimedia learning tools for enhanced understanding."
     },
     {
-      icon: Trophy,
-      title: "Competitive Examination Training",
-      description: "Special tests specifically designed for NEET students, including mock exams, pattern-based assessments, and regular performance tracking."
+      icon: Smartphone,
+      title: "Secure, Mobile-Free Residential Campus",
+      description: (
+        <>
+          Shaheen provides a distraction-free, fully residential setup with separate hostels for boys and girls, 24x7 security, AC accommodation, and <span className="bg-green-200 px-1 rounded">strict no-mobile policy to enhance focus.</span>
+        </>
+      )
     },
     {
-      icon: BookOpenCheck,
-      title: "Special Class Sessions",
-      description: "Dedicated doubt-clearing, revision, and topic-based sessions to ensure no student is left behind. Personalized attention for every learner."
+      icon: Award,
+      title: "Proven Track Record in NEET & JEE Success",
+      description: (
+        <>
+        600+ Selections in Govt. MBBS in 2024 alone! Consistently outstanding results with 3400+ doctors produced. <span className="bg-blue-200 px-1 rounded">Backed by expert faculty,</span> advanced test systems, and structured mentorship programs.
+        </>
+      )
     },
     {
-      icon: Zap,
-      title: "24/7 Power Backup",
-      description: "Uninterrupted power supply ensures continuous learning without any disruptions, supported by advanced backup systems."
+      icon: Users,
+      title: "Three-Tiered Mentorship & Smart Learning",
+      description: (
+        <>
+          <span className="bg-purple-200 px-1 rounded">Director + Faculty + Class Teacher mentorship</span> ensures every student gets academic and emotional guidance. Powered by Smart Classrooms, Weekly Tests, and AIIMS/IIT-Grade Training.
+        </>
+      )
     },
     {
       icon: UtensilsCrossed,
       title: "Hostel & Nutritious Food",
-      description: "Healthy, balanced menu designed with scientific research. Comfortable residential facilities with quality food to fuel academic excellence."
+      description: (
+        <>
+          Healthy, balanced <span className="bg-green-200 px-1 rounded">menu designed with scientific research.</span> Comfortable residential facilities with quality food to fuel academic excellence.
+        </>
+      )
     }
   ];
 
@@ -38,9 +58,9 @@ export function FacilitiesSection() {
     <section className="bg-gradient-to-b from-blue-50 to-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-blue-600 mb-2">World-Class Amenities</p>
+          <p className="text-blue-600 mb-2">Why to Join Shaheen Global Academy</p>
           <h2 className="text-gray-900 mb-4">
-            Our Facilities
+            Facilities
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Experience excellence through our comprehensive infrastructure and support systems, designed to provide the best learning environment for your success.

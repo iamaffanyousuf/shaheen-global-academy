@@ -22,7 +22,7 @@ export default function App() {
           <NewsEvents />
         </div>
         <div id="academics">
-          <CoursesSection />
+          <FacilitiesSection />
         </div>
         <div id="toppers">
           <ToppersSection />
@@ -31,7 +31,7 @@ export default function App() {
           <InfrastructureSection />
         </div>
         <div id="facilities">
-          <FacilitiesSection />
+          <CoursesSection />
         </div>
         <div id="faculties">
           <FacultiesSection />

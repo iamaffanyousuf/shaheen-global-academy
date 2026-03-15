@@ -1,21 +1,11 @@
-import { Users, Award, GraduationCapIcon, LibraryBig, Smartphone, AlignHorizontalSpaceBetween } from 'lucide-react';
+import { GraduationCapIcon, LibraryBig, AlignHorizontalSpaceBetween, BookOpenCheck } from 'lucide-react';
 
 export function CoursesSection() {
   const features = [
     {
-      icon: Award,
-      title: "Proven Track Record in NEET & JEE Success",
-      description: "600+ Selections in Govt. MBBS in 2024 alone! Consistently outstanding results with 3400+ doctors produced. Backed by expert faculty, advanced test systems, and structured mentorship programs."
-    },
-    {
-      icon: Users,
-      title: "Three-Tiered Mentorship & Smart Learning",
-      description: "Director + Faculty + Class Teacher mentorship ensures every student gets academic and emotional guidance. Powered by Smart Classrooms, Weekly Tests, and AIIMS/IIT-Grade Training."
-    },
-    {
-      icon: Smartphone,
-      title: "Secure, Mobile-Free Residential Campus",
-      description: "Shaheen provides a distraction-free, fully residential setup with separate hostels for boys and girls, 24×7 security, AC accommodation, and strict no-mobile policy to enhance focus."
+      icon: BookOpenCheck,
+      title: "Special Class Sessions",
+      description: "Dedicated doubt-clearing, revision, and topic-based sessions to ensure no student is left behind. Personalized attention for every learner."
     },
     {
       icon: LibraryBig,
@@ -38,9 +28,9 @@ export function CoursesSection() {
     <section id='courses' className="bg-gray-200 py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <p className="text-gray-600 mb-2">Our World-class Key Value Point</p>
+          <p className="text-blue-600 mb-2 font-semibold">Courses</p>
           <h2 className="text-gray-800 mb-4">
-            Empowering Education
+            Offered by Shaheen Global Academy
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Discover a learning experience designed to help you achieve your goals. We combines cutting-edge technology with proven teaching methods.
