@@ -1,4 +1,4 @@
-import heroImage1 from "../assets/bg3.png";
+import heroImage1 from "../assets/bgm.png";
 import heroImage2 from "../assets/bg2.png";
 import heroImage3 from "../assets/bg.png";
 
