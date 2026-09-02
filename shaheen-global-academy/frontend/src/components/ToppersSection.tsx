@@ -3,10 +3,14 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ToppersSection() {
-  const [selectedYear, setSelectedYear] = useState("2024");
+  // Get years first, newest → oldest
+  const years = Object.keys(toppers).sort((a, b) => parseInt(b) - parseInt(a));
+
+  // Automatically select the latest year
+  const [selectedYear, setSelectedYear] = useState(years[0] ?? "");
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  //hook
+  // hook
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -22,7 +26,6 @@ export function ToppersSection() {
     import: "default",
   });
 
-  const years = Object.keys(toppers).sort((a, b) => parseInt(b) - parseInt(a)); // Sort years in descending order
   const currentToppers = toppers[selectedYear as keyof typeof toppers] || [];
 
   // Auto-slide effect
